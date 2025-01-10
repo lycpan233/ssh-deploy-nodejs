@@ -1,16 +1,16 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
-  "version": "0.0.0",
-  "author": "",
+  "name": "ssh-deploy-nodejs",
+  "description": "Deploying a Node.js Project on a Remote Server via SSH",
+  "version": "1.0.0",
+  "author": "lycpan233",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/lycpan233/ssh-deploy-nodejs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/lycpan233/ssh-deploy-nodejs.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/lycpan233/ssh-deploy-nodejs/issues"
   },
   "keywords": [
     "actions",
@@ -21,7 +21,7 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=21"
+    "node": ">=20.14.0"
   },
   "scripts": {
     "bundle": "npm run format:write && npm run package",
@@ -67,7 +67,8 @@
     ]
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "^1.11.1",
+    "node-ssh": "^13.2.0"
   },
   "devDependencies": {
     "@github/local-action": "^2.2.1",
