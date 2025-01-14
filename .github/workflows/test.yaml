@@ -37,6 +37,6 @@ jobs:
           destination: "/home/release.zip"
           workdir: "/home"
           scripts: |
-            rm -rf /home/app
+            rm -rf /home/app && mkdir /home/app
             tar -zxvf release.zip -C /home/app && rm -rf release.zip
             source ~/.zshrc && npm start
