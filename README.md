@@ -6,9 +6,8 @@
 # 可用变量
 详情可参阅 [action.yml](action.yml)
 
-```markdown
 - `host` - 远程服务器地址
-- `username*` - 远程服务器用户名
+- `username` - 远程服务器用户名
 - `port` - 远程服务器端口, 默认 22
 - `password` - 远程服务器密码, password 和 privateKey 二选一
 - `privateKey` - 远程服务器私钥, password 和 privateKey 二选一
@@ -19,7 +18,6 @@
 - `destination` - 服务器的目标地址
 
 - `scripts` - 上传文件后需要执行的命令, 支持多行命令
-```
 
 # 实例
 ```yaml
