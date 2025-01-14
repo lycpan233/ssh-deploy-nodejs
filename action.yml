@@ -1,23 +1,44 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'ssh-deploy-nodejs'
+description: 'Deploying a Node.js Project on a Remote Server via SSH'
+author: 'lycpan233'
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
   icon: 'heart'
-  color: 'red'
+  color: 'purple'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  host:
+    description: 'IP address of the host'
     required: true
-    default: '1000'
+  username:
+    description: 'Username of SSH user'
+    required: true
+  port:
+    description: 'Port of SSH Protocol'
+    required: false
+    default: '22'
+  password:
+    description: 'Password of user, if not using private key'
+    required: false
+  privateKey:
+    description: 'Private Key of user, if not using password'
+    required: false
+  workdir:
+    description: 'Specify working directory'
+    required: false
+  source:
+    description: "Source path of the file to be uploadeds"
+    required: false
+  destination:
+    description: 'The destination path of the remote'
+    required: false
+  scripts:
+    description: 'Shell command to be executed'
+    required: false
 
-# Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  status:
+    description: 'Execution Status of the Action'
 
 runs:
   using: node20
