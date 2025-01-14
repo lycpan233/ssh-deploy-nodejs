@@ -34,9 +34,9 @@ jobs:
           username: ${{ secrets.USERNAME }}
           privateKey: ${{ secrets.SSH_PEM }}
           source: "../release.tgz"
-          destination: "/home/release.zip"
+          destination: "/home/release.tgz"
           workdir: "/home"
           scripts: |
             rm -rf /home/app && mkdir /home/app
-            tar -zxvf release.zip -C /home/app && rm -rf release.zip
-            source ~/.zshrc && npm start
+            tar -zxvf release.tgz -C /home/app && rm -rf release.tgz
+            source ~/.zshrc && cd /home/app && npm start
