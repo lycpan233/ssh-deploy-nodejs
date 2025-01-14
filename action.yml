@@ -6,31 +6,39 @@ branding:
   icon: 'heart'
   color: 'purple'
 
-
 inputs:
   host:
     description: 'IP address of the host'
     required: true
-  port:
-    description: 'Port of SSH Protocol'
-    required: false
-    default: "22"
   username:
     description: 'Username of SSH user'
     required: true
+  port:
+    description: 'Port of SSH Protocol'
+    required: false
+    default: '22'
   password:
     description: 'Password of user, if not using private key'
     required: false
   privateKey:
     description: 'Private Key of user, if not using password'
     required: false
+  workdir:
+    description: 'Specify working directory'
+    required: false
+  source:
+    description: "Source path of the file to be uploadeds"
+    required: false
+  destination:
+    description: 'The destination path of the remote'
+    required: false
   scripts:
     description: 'Shell command to be executed'
     required: false
 
 outputs:
-  time:
-    description: 'Your output description here'
+  status:
+    description: 'Execution Status of the Action'
 
 runs:
   using: node20

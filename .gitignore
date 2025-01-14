@@ -103,3 +103,5 @@ __tests__/runner/*
 
 # lock
 *-lock.json
+
+.vscode
