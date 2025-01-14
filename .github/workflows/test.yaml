@@ -8,7 +8,7 @@ on:
 
 jobs:
   deployment_test:
-    name: Build && tar
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -22,12 +22,10 @@ jobs:
       
       - name: Install dependencies
         run: |
-          npm install -g pnpm 
-          pnpm install -P
+          npm install
 
-      - name: Tar local project
-        run: tar -zcvf release.tgz ./
-
+      - name: Compressed project files
+        run: tar -zcvf ../release.tgz ./
 
       - name: SSH Deploy Node.js
         uses: ./
@@ -35,7 +33,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           privateKey: ${{ secrets.SSH_PEM }}
-          source: "./release.tgz"
+          source: "../release.tgz"
           destination: "/home/release.zip"
           workdir: "/home"
           scripts: |
