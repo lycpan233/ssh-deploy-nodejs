@@ -27,7 +27,7 @@ inputs:
     description: 'Specify working directory'
     required: false
   source:
-    description: "Source path of the file to be uploadeds"
+    description: 'Source path of the file to be uploadeds'
     required: false
   destination:
     description: 'The destination path of the remote'

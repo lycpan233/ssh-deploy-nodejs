@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - releases/*
+
+
+jobs:
+  deployment_test:
+    name: Build && tar
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14.0"
+      
+      - name: Install dependencies
+        run: |
+          npm install -g pnpm 
+          pnpm install -P
+
+      - name: Tar local project
+        run: tar -zcvf release.tgz ./
+
+
+      - name: SSH Deploy Node.js
+        uses: ./
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.SSH_PEM }}
+          source: "./release.tgz"
+          destination: "/home/release.zip"
+          workdir: "/home"
+          scripts: |
+            rm -rf /home/app
+            tar -zxvf release.zip -C /home/app && rm -rf release.zip
+            source ~/.zshrc && npm start
