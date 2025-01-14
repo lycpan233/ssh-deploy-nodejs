@@ -25,11 +25,7 @@ jobs:
           npm install
 
       - name: Compressed project files
-        run: |
-          mkdir temp_dir
-          cp -r ./ temp_dir/
-          tar -zcvf release.tgz temp_dir/
-          rm -rf temp_dir
+        run: tar -zcvf ../release.tgz ./
 
       - name: SSH Deploy Node.js
         uses: ./
@@ -37,7 +33,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           privateKey: ${{ secrets.SSH_PEM }}
-          source: "release.tgz"
+          source: "../release.tgz"
           destination: "/home/release.zip"
           workdir: "/home"
           scripts: |
