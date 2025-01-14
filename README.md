@@ -1,7 +1,10 @@
 # ssh-deploy-nodejs
 
+
+
 支持在 Github Action 中，通过 SSH 链接远程服务器，执行命令。
-本项目基于 [node-ssh](https://github.com/mscdex/ssh2) 实现
+
+[ssh-deploy-nodejs](https://github.com/lycpan233/ssh-deploy-nodejs)  本项目基于 [node-ssh](https://github.com/mscdex/ssh2) 实现
 
 # 可用变量
 详情可参阅 [action.yml](action.yml)
